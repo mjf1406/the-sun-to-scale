@@ -337,16 +337,16 @@ const REAL_WORLD_OBJECTS_BY_SIZE = {
     0.07: "a grain of sand",
     0.08: "a grain of sand",
     0.09: "a grain of sand",
-    0.1: "a strand of human hair", // Average diameter of a human hair
-    0.2: "a pinhead", // Small pinhead
-    0.3: "a fine sewing needle", // Diameter of a fine sewing needle
-    0.4: "", // Approximate thickness of standard cardboard
-    0.5: "the tip of a standard pencil", // Diameter of the lead in a standard mechanical pencil
-    0.6: "the graphite from a mechanical pencil", // Graphite diameter for a 0.6 mm mechanical pencil
-    0.7: "a grain of rice", // Average diameter of a ladybug
-    0.8: "a grain of rice", // Width of a medium grain of rice
-    0.9: "a matchstick head", // Diameter of a typical matchstick head
-    1.0: "the tip of a paper clip wire", // Typical diameter of the wire used in a standard paper clip
+    0.1: "a strand of human hair",
+    0.2: "a pinhead",
+    0.3: "a fine sewing needle",
+    0.4: "the thickness of a credit card",
+    0.5: "the tip of a standard pencil",
+    0.6: "the graphite from a mechanical pencil",
+    0.7: "a grain of rice",
+    0.8: "a grain of rice",
+    0.9: "a matchstick head",
+    1.0: "the tip of a paper clip wire",
 };
 
 async function fetchPlanetaryData() {
@@ -453,7 +453,6 @@ function populateOutput() {
         const primary = element.primary.toTitleCase();
         // const diameterMM = (element.radius * 2 * 1000000).toFixed(1); // Multiplying by 1,000,000 to convert from cm to mm
         const diameterMM = Math.floor(element.radius * 2 * 1000000 * 10) / 10; // Multiplying by 1,000,000 to convert from cm to mm
-        console.log(`🚀 ~ populateOutput ~ ${element.name}:`, diameterMM);
         const item = REAL_WORLD_OBJECTS_BY_SIZE[diameterMM];
 
         if (element.classification === "major-planet") {
