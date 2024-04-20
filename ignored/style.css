@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    color-scheme: light dark;
+    scroll-behavior: auto;
+}
+body {
+    font-family: "quicksand", sans-serif;
+}
+@media (min-width: 768px) { /* Adjust breakpoint as needed */
+    html {
+      scroll-behavior: smooth;
+    }
+}
+@media screen and (max-width: 950px) {
+    .main-content {
+        display: none;
+    }
+    .mobile-content {
+        display: block;
+    }
+}
+.text-2xs {
+    font-size: 0.6rem; /* 10px */
+    line-height: 0.9rem; /* 14px */
+}
+.text-3xs {
+    font-size: 0.5rem; /* 8px */
+    line-height: 0.6rem; /* 10px */
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.active {
+    @apply dark:bg-gray-600 bg-gray-400
+}
+
+.cell-2xs {
+    @apply text-2xs w-3.5 h-3.5
+}
+.cell-xs {
+    @apply text-xs w-4 h-4
+}
+.cell-sm {
+    @apply text-sm w-5 h-5
+}
+.cell-base {
+    @apply text-base w-6 h-6
+}
+.cell-lg {
+    @apply text-lg w-7 h-7
+}
+.cell-xl {
+    @apply text-xl w-7 h-7
+}
+.cell-2xl {
+    @apply text-2xl w-7 h-7
+}
