@@ -6,7 +6,7 @@ This website allows the user to specificy an everyday spherical object to repres
 
 -   To-do List
     -   add the rest of the real-world objects
-    -
+    -   colors are borked on Chrome, so need a theme
 -   2024/04/20
     -   added planet icons
     -   added celestial data
