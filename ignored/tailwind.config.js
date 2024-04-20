@@ -1,19 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    mode: 'jit',
+    mode: "jit",
     // darkMode: 'class',
-    content: [
-      '../index.html',
-      '../html/bit-maze.html',
-      '../html/word-search.html',
-      '../html/crossword.html'
-    ],
+    content: ["../index.html", "../app.js"],
     theme: {
-      extend: {
-        screens: {
-          'min-1860': '1860px',
-        }
-      },
+        extend: {
+            screens: {
+                "min-1860": "1860px",
+            },
+        },
     },
     plugins: [],
-}
+};

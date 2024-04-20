@@ -56,7 +56,7 @@ const CELESTIAL_BODIES = [
         orbital_radius: 2875312000.0,
     },
     {
-        name: "nepture",
+        name: "neptune",
         radius: 24622.0,
         classification: "major-planet",
         primary: "sol",
@@ -324,80 +324,31 @@ const SUN_OBJECTS = {
         diameter: 23,
     },
 };
-const TENNIS_BALL_SUN = {
-    // Major Planets
-    mercury: {
-        object: "",
-    },
-    venus: {
-        object: "",
-    },
-    earth: {
-        object: "",
-    },
-    mars: {
-        object: "",
-    },
-    jupiter: {
-        object: "",
-    },
-    saturn: {
-        object: "",
-    },
-    uranus: {
-        object: "",
-    },
-    neptune: {
-        object: "",
-    },
-    // Dwarf Planets
-    pluto: {
-        object: "",
-    },
-    haumea: {
-        object: "",
-    },
-    makemake: {
-        object: "",
-    },
-    eris: {
-        object: "",
-    },
-    ceres: {
-        object: "",
-    },
-    // Natural Satellites
-    moon: {
-        object: "",
-    },
-    ganymede: {
-        object: "",
-    },
-    titan: {
-        object: "",
-    },
-    callisto: {
-        object: "",
-    },
-    io: {
-        object: "",
-    },
-    europa: {
-        object: "",
-    },
-    triton: {
-        object: "",
-    },
-    titania: {
-        object: "",
-    },
-    rhea: {
-        object: "",
-    },
-    oberon: {
-        object: "",
-    },
+const REAL_WORLD_OBJECTS_BY_SIZE = {
+    0: "a grain of sand",
+    "0.00": "a grain of sand",
+    "0.0": "a grain of sand",
+    0.01: "a grain of sand",
+    0.02: "a grain of sand",
+    0.03: "a grain of sand",
+    0.04: "a grain of sand",
+    0.05: "a grain of sand",
+    0.06: "a grain of sand",
+    0.07: "a grain of sand",
+    0.08: "a grain of sand",
+    0.09: "a grain of sand",
+    0.1: "a strand of human hair", // Average diameter of a human hair
+    0.2: "a pinhead", // Small pinhead
+    0.3: "a fine sewing needle", // Diameter of a fine sewing needle
+    0.4: "", // Approximate thickness of standard cardboard
+    0.5: "the tip of a standard pencil", // Diameter of the lead in a standard mechanical pencil
+    0.6: "the graphite from a mechanical pencil", // Graphite diameter for a 0.6 mm mechanical pencil
+    0.7: "a grain of rice", // Average diameter of a ladybug
+    0.8: "a grain of rice", // Width of a medium grain of rice
+    0.9: "a matchstick head", // Diameter of a typical matchstick head
+    1.0: "the tip of a paper clip wire", // Typical diameter of the wire used in a standard paper clip
 };
+
 async function fetchPlanetaryData() {
     const url = "https://api.le-systeme-solaire.net/rest/bodies";
 
@@ -469,28 +420,74 @@ function setSunObjectDiameter() {
     const diameter = SUN_OBJECTS[selectedOption].diameter;
 
     const sunObjectDiameter = document.getElementById("sun-object-diameter");
-    sunObjectDiameter.innerHTML = `<b>${diameter}cm</b>...`;
+    sunObjectDiameter.innerHTML = `<b>${diameter} cm</b>`;
 }
-
+function setSunObjectIcon() {
+    const dropdown = document.getElementById("sun-objects");
+    let selectedOption = dropdown.value.replaceAll(" ", "-");
+    const img = document.getElementById("sun-object");
+    img.src = `images/${selectedOption}.svg`;
+    img.alt = `A(n) ${selectedOption.replaceAll("-", " ")}`;
+}
 function populateOutput() {
     document.getElementById("output-major-planet").innerHTML = "";
     document.getElementById("output-minor-planet").innerHTML = "";
     document.getElementById("output-natural-satellite").innerHTML = "";
+    const scaleDiv = document.getElementById("scale");
+    scaleDiv.innerHTML = "";
 
-    const data = computeScaledOutput();
-    const item = "ITEM";
+    let data = computeScaledOutput();
+    const scale = `1 : ${data.scale.toLocaleString()}`;
+    scaleDiv.innerHTML = scale;
+    data = data.data;
+
     for (let index = 0; index < data.length; index++) {
         if (index === 0) continue;
+        let img;
         const element = data[index];
         const elemId = `output-${element.classification}`;
-        const radius = (element.radius * 2 * 10).toFixed(1).toLocaleString();
-        const orbitalRadius = (element.orbital_radius / 100)
-            .toFixed(1)
-            .toLocaleString();
+        const radius = formatKilometersToReadable(element.radius * 2);
+        const orbitalRadius = formatKilometersToReadable(
+            element.orbital_radius / 100000
+        );
         const primary = element.primary.toTitleCase();
-        const p = document.createElement("p");
-        p.innerHTML = `<b>${element.name.toTitleCase()}</b> would be a(n) <b>${item}</b> with a diameter of <b>${radius}mm</b> at about <b>${orbitalRadius}m</b> away from <i>${primary}</i>.`;
+        // const diameterMM = (element.radius * 2 * 1000000).toFixed(1); // Multiplying by 1,000,000 to convert from cm to mm
+        const diameterMM = Math.floor(element.radius * 2 * 1000000 * 10) / 10; // Multiplying by 1,000,000 to convert from cm to mm
+        console.log(`🚀 ~ populateOutput ~ ${element.name}:`, diameterMM);
+        const item = REAL_WORLD_OBJECTS_BY_SIZE[diameterMM];
+
+        if (element.classification === "major-planet") {
+            img = document.createElement("img");
+            img.src = `images/${element.name}.svg`;
+            img.style.height = "30px";
+        }
+
+        const p = document.createElement("div");
+        p.classList.add("flex", "gap-2", "items-center");
+
+        if (element.classification === "major-planet") p.appendChild(img);
+
+        const span = document.createElement("span");
+        span.innerHTML = `<b>${element.name.toTitleCase()}</b> would be <b>${item}</b> with a diameter of <b>${radius}</b> at about <b>${orbitalRadius}</b> away from <i>${primary}</i>.`;
+
+        p.appendChild(span);
         document.getElementById(elemId).appendChild(p);
+    }
+}
+
+function formatKilometersToReadable(km) {
+    const millimeters = km * 1000000;
+    if (millimeters >= 1000000) {
+        const meters = millimeters / 1000000;
+        return `${meters.toFixed(2).toLocaleString()} km`; // Output in meters
+    } else if (millimeters >= 1000) {
+        const meters = millimeters / 1000;
+        return `${meters.toFixed(2).toLocaleString()} m`; // Output in meters
+    } else if (millimeters >= 10) {
+        const centimeters = millimeters / 10;
+        return `${centimeters.toFixed(2).toLocaleString()} cm`; // Output in centimeters
+    } else {
+        return `${millimeters.toFixed(2).toLocaleString()} mm`; // Output in millimeters
     }
 }
 
@@ -499,15 +496,22 @@ function computeScaleFactor() {
     let selectedOption = dropdown.value.replaceAll(" ", "_");
     const SunObjectRadius = SUN_OBJECTS[selectedOption].diameter / 2;
     const sunRadius = CELESTIAL_BODIES.find((i) => i.name === "sol").radius;
-    return SunObjectRadius / sunRadius;
+    const scaleFactor = SunObjectRadius / sunRadius;
+
+    const realUnitsPerModelUnit = 1 / scaleFactor;
+    const scale = realUnitsPerModelUnit;
+
+    return { scaleFactor: scaleFactor, scale: scale };
 }
 
 function computeScaledOutput() {
-    const scaleFactor = computeScaleFactor();
+    const scaleData = computeScaleFactor();
+    const scaleFactor = scaleData.scaleFactor;
+    const scale = scaleData.scale;
     const data = [];
     for (let index = 0; index < CELESTIAL_BODIES.length; index++) {
         const element = CELESTIAL_BODIES[index];
-        const radius = element.radius * scaleFactor;
+        const radius = (element.radius * scaleFactor) / 100000; // Divide by 100,000 to convert from cm to km so that we can format it nicely.
         const name = element.name;
         const classification = element.classification;
         const primary = element.primary;
@@ -521,13 +525,14 @@ function computeScaledOutput() {
             orbital_radius: orbital_radius,
         });
     }
-    return data;
+    return { data: data, scale: scale };
 }
 
 function setupListeners() {
     const dropdown = document.getElementById("sun-objects");
     dropdown.addEventListener("change", setSunObjectDiameter);
     dropdown.addEventListener("change", populateOutput);
+    dropdown.addEventListener("change", setSunObjectIcon);
 }
 
 // Extended Methods
