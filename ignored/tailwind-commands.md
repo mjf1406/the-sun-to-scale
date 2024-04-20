@@ -1,4 +1,4 @@
-## Getting Started
+cd c## Getting Started
 
 [tailwindcss Standaloen CLI](https://tailwindcss.com/blog/standalone-cli)
 

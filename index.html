@@ -16,12 +16,31 @@
     <title>The Sun to Scale</title>
 </head>
 
-<body class="flex justify-center align-middle w-full m-auto p-5">
-    <h1 class="text-3xl">The Sun to Scale</h1>
+<body class="flex justify-center w-full p-5 m-auto align-middle">
+    <div class="flex flex-col items-center justify-center gap-4 m-auto">
+        <h1 class="text-5xl">The Sun to Scale</h1>
+        <div>
+            If <b>the Sun</b> were a
+            <select id="sun-objects" class="px-2 py-2"></select>
+            with a diameter of <span id="sun-object-diameter"></span>
+        </div>
+        <div id="output">
+            <h2 class="mb-1 text-2xl">Major Planets</h2>
+            <div id="output-major-planet"></div>
+            <h2 class="mt-2 mb-1 text-2xl">Minor Planets</h2>
+            <div id="output-minor-planet"></div>
+            <h2 class="mt-2 mb-1 text-2xl">Natural Satellites</h2>
+            <div id="output-natural-satellite"></div>
+        </div>
+    </div>
 </body>
 <script src="app.js"></script>
 <script>
-    // checkPlanetaryData() // This data does not have what I need.a
+    // checkPlanetaryData() // This data does not have what I need.
+    populateDropdownFromArray("sun-objects", SUN_OBJECTS)
+    setSunObjectDiameter()
+    setupListeners()
+    populateOutput()
 </script>
 
 </html>
