@@ -324,49 +324,6 @@ const SUN_OBJECTS = {
         diameter: 23,
     },
 };
-const REAL_WORLD_OBJECTS_BY_SIZE = {
-    0: ["a grain of sand", "", ""],
-    "0.00": "a grain of sand",
-    "0.0": "a grain of sand",
-    0.01: "a grain of sand",
-    0.02: "a grain of sand",
-    0.03: "a grain of sand",
-    0.04: "a grain of sand",
-    0.05: "a grain of sand",
-    0.06: "a grain of sand",
-    0.07: "a grain of sand",
-    0.08: "a grain of sand",
-    0.09: "a grain of sand",
-    0.1: "a strand of human hair",
-    0.2: "a pinhead",
-    0.3: "a fine sewing needle",
-    0.4: "the thickness of a credit card",
-    0.5: "the tip of a standard pencil",
-    0.6: "the graphite from a mechanical pencil",
-    0.7: "a grain of rice",
-    0.8: "a grain of rice",
-    0.9: "a matchstick head",
-    1.0: "the tip of a paper clip wire",
-    2.0: "",
-    3.0: "",
-    4.0: "",
-    5.0: "",
-    6.0: "",
-    7.0: "",
-    8.0: "",
-    9.0: "",
-    10.0: "",
-    20.0: "",
-    30.0: "",
-    40.0: "",
-    50.0: "",
-    60.0: "",
-    70.0: "",
-    80.0: "",
-    90.0: "",
-    100.0: "",
-};
-
 const OBJECTS = {
     0: ["a grain of sand", "", ""],
     "0.00": ["a grain of sand", "", ""],
@@ -605,8 +562,6 @@ function populateOutput() {
         // const diameterMM = (element.radius * 2 * 1000000).toFixed(1); // Multiplying by 1,000,000 to convert from cm to mm
         const diameterMM = Math.floor(element.radius * 2 * 1000000 * 10) / 10; // Multiplying by 1,000,000 to convert from cm to mm
         const items = getObjectsBySize(diameterMM);
-        console.log(`🚀 ~ populateOutput ~ ${element.name}:`, items);
-        // const item = REAL_WORLD_OBJECTS_BY_SIZE[diameterMM];
         const item = items[0];
 
         if (element.classification === "major-planet") {
@@ -628,11 +583,8 @@ function populateOutput() {
     }
 }
 function getObjectsBySize(diameter) {
-    console.log("🚀 ~ getObjectsBySize ~ diameter:", diameter);
     if (diameter > 1) diameter = diameter.toFixed(0) + ".0";
-    console.log("🚀 ~ getObjectsBySize ~ diameter:", diameter);
     let itemsPlusEmpty = OBJECTS[diameter];
-    console.log("🚀 ~ getObjectsBySize ~ itemsPlusEmpty:", itemsPlusEmpty);
     let items =
         itemsPlusEmpty === undefined
             ? []
