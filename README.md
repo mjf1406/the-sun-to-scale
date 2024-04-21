@@ -10,6 +10,7 @@ This website allows the user to specificy an everyday spherical object to repres
 -   2024/04/21
     -   added the rest of the real-world objects
     -   fixed: colors are broken on Chrome, so need a theme
+    -   added icons for minor planets and natural satellites
 -   2024/04/20
     -   added planet icons
     -   added celestial data

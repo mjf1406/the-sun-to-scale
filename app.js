@@ -568,12 +568,18 @@ function populateOutput() {
             img = document.createElement("img");
             img.src = `images/${element.name}.svg`;
             img.style.height = "30px";
+        } else {
+            img = document.createElement("img");
+            img.src = `images/${element.classification}.svg`;
+            img.style.height =
+                element.classification === "minor-planet" ? "40px" : "20px";
         }
 
         const p = document.createElement("div");
         p.classList.add("flex", "gap-2", "items-center");
 
-        if (element.classification === "major-planet") p.appendChild(img);
+        // if (element.classification === "major-planet") p.appendChild(img);
+        p.appendChild(img);
 
         const span = document.createElement("span");
         span.innerHTML = `<b>${element.name.toTitleCase()}</b> would be <span class="bg-accent/20 font-bold px-2 py-1 rounded-sm">${item}</span> with a diameter of <b>${radius}</b> at about <b>${orbitalRadius}</b> away from <i>${primary}</i>.`;
