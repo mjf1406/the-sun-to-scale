@@ -5,8 +5,11 @@ This website allows the user to specificy an everyday spherical object to repres
 ## Change Log
 
 -   To-do List
-    -   add the rest of the real-world objects
-    -   colors are borked on Chrome, so need a theme
+    -   sticky on mobile is a bit weird
+    -
+-   2024/04/21
+    -   added the rest of the real-world objects
+    -   fixed: colors are broken on Chrome, so need a theme
 -   2024/04/20
     -   added planet icons
     -   added celestial data

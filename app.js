@@ -325,7 +325,7 @@ const SUN_OBJECTS = {
     },
 };
 const REAL_WORLD_OBJECTS_BY_SIZE = {
-    0: "a grain of sand",
+    0: ["a grain of sand", "", ""],
     "0.00": "a grain of sand",
     "0.0": "a grain of sand",
     0.01: "a grain of sand",
@@ -347,6 +347,156 @@ const REAL_WORLD_OBJECTS_BY_SIZE = {
     0.8: "a grain of rice",
     0.9: "a matchstick head",
     1.0: "the tip of a paper clip wire",
+    2.0: "",
+    3.0: "",
+    4.0: "",
+    5.0: "",
+    6.0: "",
+    7.0: "",
+    8.0: "",
+    9.0: "",
+    10.0: "",
+    20.0: "",
+    30.0: "",
+    40.0: "",
+    50.0: "",
+    60.0: "",
+    70.0: "",
+    80.0: "",
+    90.0: "",
+    100.0: "",
+};
+
+const OBJECTS = {
+    0: ["a grain of sand", "", ""],
+    "0.00": ["a grain of sand", "", ""],
+    "0.0": ["a grain of sand", "", ""],
+    0.01: ["a grain of sand", "", ""],
+    0.02: ["a grain of sand", "", ""],
+    0.03: ["a grain of sand", "", ""],
+    0.04: ["a grain of sand", "", ""],
+    0.05: ["a grain of sand", "", ""],
+    0.06: ["a grain of sand", "", ""],
+    0.07: ["a grain of sand", "", ""],
+    0.08: ["a grain of sand", "", ""],
+    0.09: ["a grain of sand", "", ""],
+    0.1: ["a stand of human hair", "", ""],
+    0.2: ["a pinhead", "", ""],
+    0.3: ["a fine sewing needle", "", ""],
+    0.4: ["the thickness of a credit card", "", ""],
+    0.5: ["the tip of a standard pencil", "", ""],
+    0.6: ["the diameter of graphite from a 0.6 mm mechanical pencil", "", ""],
+    0.7: ["", "", ""],
+    0.8: ["", "", ""],
+    0.9: ["the diameter of graphite from a 0.9 mm mechanical pencil", "", ""],
+    "1.0": ["the tip of a paper clip wire", "the thickness of a penny", ""],
+    "2.0": [
+        "the thickness of a nickel",
+        "the width of a staple",
+        "the end of a sewing needle",
+    ],
+    "3.0": ["a coffee bean", "the head of a matchstick", ""],
+    "4.0": ["the diameter of a plastic straw", "", ""],
+    "5.0": [
+        "a pencil eraser",
+        "a DC plug tip",
+        "the length of a grain of rice",
+    ],
+    "6.0": ["", "", ""],
+    "7.0": ["", "", ""],
+    "8.0": ["", "", ""],
+    "9.0": ["", "", ""],
+    "10.0": ["a pea", "", ""],
+    "11.0": ["", "", ""],
+    "12.0": ["", "", ""],
+    "13.0": ["a standard marble", "", ""],
+    "14.0": ["a 6-sided die", "", ""],
+    "15.0": ["", "", ""],
+    "16.0": ["", "", ""],
+    "17.0": ["1 won coin", "a 12-sided die", ""],
+    "18.0": ["10 won coin", "a dime", "a 4-sided die"],
+    "19.0": ["a 1 won coin", "a penny", ""],
+    "20.0": ["the length of a peanut", "a 5 won coin"],
+    "21.0": ["a 500 won coin", "a nickel", ""],
+    "22.0": ["50 won coin", "a 10-sided die", "a 20-sided die"],
+    "23.0": ["an 8-sided die", "", ""],
+    "24.0": ["a 100 won coin", "a quarter", ""],
+    "25.0": ["a large marble", "", ""],
+    "26.0": ["a lemon", "a lime", "a dollar coin"],
+    "27.0": ["500 won coin", "a standard bouncy ball", ""],
+    "28.0": ["the head of a badminton shuttlecock", "", ""],
+    "29.0": ["", "", ""],
+    "30.0": ["a half dollar coin", "a banana slice", ""],
+    "31.0": ["", "", ""],
+    "32.0": ["a large bouncy ball", "", ""],
+    "33.0": ["", "", ""],
+    "34.0": ["", "", ""],
+    "35.0": ["", "", ""],
+    "36.0": ["", "", ""],
+    "37.0": ["", "", ""],
+    "38.0": ["", "", ""],
+    "39.0": ["", "", ""],
+    "40.0": ["a ping-pong ball", "", ""],
+    "41.0": ["", "", ""],
+    "42.0": ["a golf ball", "", ""],
+    "43.0": ["", "", ""],
+    "44.0": ["", "", ""],
+    "45.0": ["an extra large bouncy ball", "", ""],
+    "46.0": ["", "", ""],
+    "47.0": ["", "", ""],
+    "48.0": ["", "", ""],
+    "49.0": ["", "", ""],
+    "50.0": ["a medium bracelet", "", ""],
+    "51.0": ["", "", ""],
+    "52.0": ["", "", ""],
+    "53.0": ["", "", ""],
+    "54.0": ["the width of a credit card", "", ""],
+    "55.0": ["", "", ""],
+    "56.0": ["", "", ""],
+    "57.0": ["", "", ""],
+    "58.0": ["", "", ""],
+    "59.0": ["", "", ""],
+    "60.0": ["a hoop earring", "", ""],
+    "61.0": ["", "", ""],
+    "62.0": ["", "", ""],
+    "63.0": ["", "", ""],
+    "64.0": ["", "", ""],
+    "65.0": ["a large bracelet", "", ""],
+    "66.0": ["the top of a soda can", "", ""],
+    "67.0": ["", "", ""],
+    "68.0": ["a tennis ball", "", ""],
+    "69.0": ["", "", ""],
+    "70.0": ["a medium-sized apple", "", ""],
+    "71.0": ["", "", ""],
+    "72.0": ["", "", ""],
+    "73.0": ["", "", ""],
+    "74.0": ["", "", ""],
+    "75.0": ["a baseball", "", ""],
+    "76.0": ["", "", ""],
+    "77.0": ["", "", ""],
+    "78.0": ["", "", ""],
+    "79.0": ["", "", ""],
+    "80.0": ["an orange", "", ""],
+    "81.0": ["", "", ""],
+    "82.0": ["", "", ""],
+    "83.0": ["", "", ""],
+    "84.0": ["", "", ""],
+    "85.0": ["the length of a credit card", "", ""],
+    "86.0": ["", "", ""],
+    "87.0": ["", "", ""],
+    "88.0": ["", "", ""],
+    "89.0": ["", "", ""],
+    "90.0": ["a donut", "", ""],
+    "91.0": ["", "", ""],
+    "92.0": ["", "", ""],
+    "93.0": ["", "", ""],
+    "94.0": ["", "", ""],
+    "95.0": ["", "", ""],
+    "96.0": ["", "", ""],
+    "97.0": ["a softball", "", ""],
+    "98.0": ["", "", ""],
+    "99.0": ["", "", ""],
+    "100.0": ["a bagel", "a grapefruit", ""],
 };
 
 async function fetchPlanetaryData() {
@@ -411,6 +561,7 @@ function populateDropdownFromArray(id, array) {
         const option = document.createElement("option");
         option.value = element.name;
         option.text = element.name;
+        option.classList.add("hover:bg-primary");
         dropdown.appendChild(option);
     }
 }
@@ -453,7 +604,10 @@ function populateOutput() {
         const primary = element.primary.toTitleCase();
         // const diameterMM = (element.radius * 2 * 1000000).toFixed(1); // Multiplying by 1,000,000 to convert from cm to mm
         const diameterMM = Math.floor(element.radius * 2 * 1000000 * 10) / 10; // Multiplying by 1,000,000 to convert from cm to mm
-        const item = REAL_WORLD_OBJECTS_BY_SIZE[diameterMM];
+        const items = getObjectsBySize(diameterMM);
+        console.log(`🚀 ~ populateOutput ~ ${element.name}:`, items);
+        // const item = REAL_WORLD_OBJECTS_BY_SIZE[diameterMM];
+        const item = items[0];
 
         if (element.classification === "major-planet") {
             img = document.createElement("img");
@@ -467,11 +621,25 @@ function populateOutput() {
         if (element.classification === "major-planet") p.appendChild(img);
 
         const span = document.createElement("span");
-        span.innerHTML = `<b>${element.name.toTitleCase()}</b> would be <b>${item}</b> with a diameter of <b>${radius}</b> at about <b>${orbitalRadius}</b> away from <i>${primary}</i>.`;
+        span.innerHTML = `<b>${element.name.toTitleCase()}</b> would be <span class="bg-accent/20 font-bold px-2 py-1 rounded-sm">${item}</span> with a diameter of <b>${radius}</b> at about <b>${orbitalRadius}</b> away from <i>${primary}</i>.`;
 
         p.appendChild(span);
         document.getElementById(elemId).appendChild(p);
     }
+}
+function getObjectsBySize(diameter) {
+    console.log("🚀 ~ getObjectsBySize ~ diameter:", diameter);
+    if (diameter > 1) diameter = diameter.toFixed(0) + ".0";
+    console.log("🚀 ~ getObjectsBySize ~ diameter:", diameter);
+    let itemsPlusEmpty = OBJECTS[diameter];
+    console.log("🚀 ~ getObjectsBySize ~ itemsPlusEmpty:", itemsPlusEmpty);
+    let items =
+        itemsPlusEmpty === undefined
+            ? []
+            : itemsPlusEmpty.filter((element) => element && element.trim());
+
+    if (items.length === 0) items = ["a circle"];
+    return items;
 }
 
 function formatKilometersToReadable(km) {

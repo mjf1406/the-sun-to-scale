@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    :root {
+        --text: 100 60% 4%;
+        --background: 105 57% 97%;
+        --primary: 103 59% 50%;
+        --secondary: 270 59% 73%;
+        --accent: 329 59% 65%;
+
+        @media (prefers-color-scheme: dark) {
+            --text: 100 60% 96%;
+            --background: 107 60% 3%;
+            --primary: 103 59% 50%;
+            --secondary: 270 59% 27%;
+            --accent: 329 59% 35%;
+        }
+    }
+}
+
 html {
     color-scheme: light dark;
     scroll-behavior: auto;
@@ -9,9 +27,10 @@ html {
 body {
     font-family: "quicksand", sans-serif;
 }
-@media (min-width: 768px) { /* Adjust breakpoint as needed */
+@media (min-width: 768px) {
+    /* Adjust breakpoint as needed */
     html {
-      scroll-behavior: smooth;
+        scroll-behavior: smooth;
     }
 }
 @media screen and (max-width: 950px) {
@@ -34,37 +53,33 @@ body {
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-.active {
-    @apply dark:bg-gray-600 bg-gray-400
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 .cell-2xs {
-    @apply text-2xs w-3.5 h-3.5
+    @apply text-2xs w-3.5 h-3.5;
 }
 .cell-xs {
-    @apply text-xs w-4 h-4
+    @apply w-4 h-4 text-xs;
 }
 .cell-sm {
-    @apply text-sm w-5 h-5
+    @apply w-5 h-5 text-sm;
 }
 .cell-base {
-    @apply text-base w-6 h-6
+    @apply w-6 h-6 text-base;
 }
 .cell-lg {
-    @apply text-lg w-7 h-7
+    @apply text-lg w-7 h-7;
 }
 .cell-xl {
-    @apply text-xl w-7 h-7
+    @apply text-xl w-7 h-7;
 }
 .cell-2xl {
-    @apply text-2xl w-7 h-7
+    @apply text-2xl w-7 h-7;
 }

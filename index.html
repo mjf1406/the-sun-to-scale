@@ -16,16 +16,16 @@
     <title>The Sun to Scale</title>
 </head>
 
-<body class="flex justify-center w-full p-5 m-auto text-xl align-middle transition-all duration-300 ease-in-out">
+<body
+    class="flex justify-center w-full p-5 m-auto text-xl align-middle transition-all duration-300 ease-in-out bg-background text-text">
     <div class="flex flex-col items-center justify-center gap-4 m-auto">
         <h1 class="text-6xl">The Sun to Scale</h1>
         <div>
             If <b>the Sun</b> (Sol) were a
-            <select id="sun-objects" class="px-2 py-2"></select>
+            <select id="sun-objects" class="px-2 py-2 bg-secondary"></select>
             with a diameter of <span id="sun-object-diameter"></span><span class="text-5xl">...</span>
         </div>
-        <div
-            class="sticky top-0 flex-col items-center gap-2 bg-white dark:bg-[#1c1b22] w-full justify-center pt-2 pb-4">
+        <div class="sticky top-0 flex-col items-center justify-center w-full gap-2 pt-2 pb-4 bg-white bg-background">
             <div class="flex items-center justify-center w-full gap-2 m-auto">
                 <img src="images/sun.svg" alt="The Sun" style="height: 70px;">
                 <i class="text-5xl fa-solid fa-equals"></i>
@@ -35,16 +35,23 @@
                 <span id="scale"></span> cm
             </div>
         </div>
-        <div id="output">
-            <h2 class="sticky top-0 mb-1 text-4xl bg-white dark:bg-[#1c1b22] w-fit pt-8 pb-4 px-2">Major Planets</h2>
-            <div id="output-major-planet" class="space-y-2"></div>
-            <h2 class="sticky top-0 mt-2 mb-1 text-4xl bg-white dark:bg-[#1c1b22]  w-fit pt-8 pb-4 px-2">Minor Planets
-            </h2>
-            <div id="output-minor-planet" class="space-y-2"></div>
-            <h2 class="sticky top-0 mt-2 mb-1 text-4xl bg-white dark:bg-[#1c1b22] w-fit pt-8 pb-4 px-2">Natural
-                Satellites
-            </h2>
-            <div id="output-natural-satellite" class="space-y-2"></div>
+        <div id="output" class="flex flex-col gap-5">
+            <div class="p-3 rounded-xl">
+                <h2 class="sticky top-0 px-2 pt-8 pb-4 mb-1 text-4xl w-fit">Major Planets</h2>
+                <div id="output-major-planet" class="space-y-2"></div>
+            </div>
+            <div class="p-3 rounded-xl">
+                <h2 class="sticky top-0 px-2 pt-8 pb-4 mt-2 mb-1 text-4xl w-fit">Minor Planets
+                </h2>
+                <div id="output-minor-planet" class="space-y-2"></div>
+            </div>
+            <div class="p-3 rounded-xl">
+                <h2 class="sticky top-0 px-2 pt-8 pb-4 mt-2 mb-1 text-4xl w-fit">Natural
+                    Satellites
+                </h2>
+                <div id="output-natural-satellite" class="space-y-2"></div>
+            </div>
+
         </div>
     </div>
 </body>
