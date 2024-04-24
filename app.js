@@ -63,6 +63,16 @@ const CELESTIAL_BODIES = [
         orbital_radius: 4495480000.0,
     },
     {
+        name: "planet nine",
+        radius: 17201.7, // 2.7 times the radius of Earth
+        classification: "major-planet",
+        primary: "sol",
+        aphelion: 8.377e10,
+        perihelion: 5.086e10,
+        orbital_radius: 6.732e10,
+        mass: 6.3,
+    },
+    {
         name: "pluto",
         radius: 1188.5,
         classification: "minor-planet",
@@ -566,7 +576,7 @@ function populateOutput() {
 
         if (element.classification === "major-planet") {
             img = document.createElement("img");
-            img.src = `images/${element.name}.svg`;
+            img.src = `images/${element.name.replaceAll(" ", "-")}.svg`;
             img.style.height = "30px";
         } else {
             img = document.createElement("img");
