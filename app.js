@@ -641,6 +641,7 @@ function computeScaleFactor() {
 
 function computeScaledOutput() {
     const scaleData = computeScaleFactor();
+    console.log("Scale Data:", scaleData)
     const scaleFactor = scaleData.scaleFactor;
     const scale = scaleData.scale;
     const data = [];
