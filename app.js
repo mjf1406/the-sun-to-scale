@@ -661,6 +661,7 @@ function computeScaledOutput() {
             orbital_radius: orbital_radius,
         });
     }
+    console.log("Data:", data)
     return { data: data, scale: scale };
 }
 
